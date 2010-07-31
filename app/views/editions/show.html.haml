@@ -1,0 +1,7 @@
+%h1=@newsletter.title
+#edition_number Edition N° #{@edition.id}
+#main_article
+#articles
+- for article in @edition.articles do
+	.article
+		=render :partial => article

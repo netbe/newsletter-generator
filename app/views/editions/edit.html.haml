@@ -1,0 +1,12 @@
+%h1
+  Edit edition n°
+  =@edition.id
+  of
+  =@newsletter.title
+%div= link_to("Preview", newsletter_edition_path(@newsletter, @edition), :class=>'thickbox') 
+/- form_tag newsletter_editions_path(@newsletter), :method=> :put do
+#articles_editions
+  = render :partial => "articles_editions", :locals => {:newsletter => @newsletter, :edition => @edition}
+
+/%div=submit_tag 'Update', :style => "clear:both"
+  

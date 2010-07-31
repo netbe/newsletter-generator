@@ -1,0 +1,5 @@
+%h1=@newsletter.title.capitalize
+- for edition in @editions
+  =render :partial => edition
+%br
+  = link_to 'New edition', new_newsletter_edition_path(@newsletter.id)

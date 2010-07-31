@@ -1,0 +1,9 @@
+%h1
+  New edition for
+  =@newsletter.title
+  
+- form_tag newsletter_editions_path(@newsletter)do
+  %label select some articles to add to this new edition
+  %div
+    =select_tag :articles,	options_from_collection_for_select(Article.all, 'id', 'title'),{:multiple=> true, :id=>'selectarticles'}
+    =submit_tag 'Create'

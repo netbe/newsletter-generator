@@ -1,0 +1,14 @@
+#available_articles
+  .title Available articles
+  .content
+    - for article in Article.unpublished do
+      %div{:id=> "article_#{article.id}",:class=>"draggable"}=article.title
+      =draggable_element("article_#{article.id}", :revert=>true)
+#selected_articles
+  .title Articles contained in this edition
+  .content
+    - for article in edition.articles do
+      %div{:id=> "article_#{article.id}",:class=>"draggable"}=article.title
+      =draggable_element("article_#{article.id}", :revert=>true)
+= drop_receiving_element('selected_articles',:accept => ".draggable",:with => "'article_id=' +$(ui.draggable).attr('id').split('_')[1]",:update=>'articles_editions', :url => add_article_newsletter_edition_path(newsletter,edition))
+= drop_receiving_element('available_articles',:accept => ".draggable",:with => "'article_id=' +$(ui.draggable).attr('id').split('_')[1]",:update=>'articles_editions', :url => remove_article_newsletter_edition_path(newsletter,edition))

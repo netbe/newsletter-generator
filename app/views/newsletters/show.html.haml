@@ -1,0 +1,7 @@
+%h1=h "Newsletter: "+ @newsletter.title.capitalize
+%div
+  - if @newsletter.editions.nil?
+    No editions yet
+  - else
+    =render :partial => @newsletter.editions
+=link_to 'Create a new edition', new_newsletter_edition_path(@newsletter)

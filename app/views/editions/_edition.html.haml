@@ -1,0 +1,4 @@
+%div{:id => "edition_#{edition.id}", :class => "edition"}
+  =link_to("Edition n°#{edition.id}", newsletter_edition_path(edition.newsletter_id, edition), :class=>'thickbox')
+  =link_to("[edit]", edit_newsletter_edition_path(edition.newsletter_id, edition))
+  =link_to_remote("[delete]", :url => newsletter_edition_path(edition.newsletter_id, edition),:method=> :delete )

@@ -1,0 +1,17 @@
+!!! Strict
+%html
+	%head
+		/%link{ :rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon"}
+		%title= "Test :: "+controller.controller_name.capitalize
+		= stylesheet_link_tag 'style','thickbox'
+		= javascript_include_tag :defaults, 'thickbox-compressed'
+	%body
+		#body
+			.header#header<
+				=render :partial => 'layouts/header'
+				.menu#menu= render :partial => 'layouts/menu'
+			#sidebar
+				=render :partial => 'layouts/sidebar'
+			.content#content
+				= flash[:notice]
+				= yield

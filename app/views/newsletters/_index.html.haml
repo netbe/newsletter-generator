@@ -1,0 +1,7 @@
+%h1 Newsletters
+.links= link_to 'New newsletter', new_newsletter_path
+- newsletters.each do |newsletter|
+
+  %div
+    %h2=link_to newsletter.title, newsletter
+    =render :partial => newsletter.editions

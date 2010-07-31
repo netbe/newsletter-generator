@@ -1,0 +1,6 @@
+%p
+  - unless @article.edition_id.nil?
+    This article belongs to Edition n°
+    =@article.edition_id
+=render :partial => @article
+
